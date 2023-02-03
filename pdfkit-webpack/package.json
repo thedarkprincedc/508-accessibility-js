@@ -1,20 +1,20 @@
 {
-  "name": "pdfkit-node",
+  "name": "pdfkit-web",
   "version": "1.0.0",
   "description": "",
-  "main": "bin/app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node bin/app.js",
+    "start": "lite-server",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "open": "^8.4.0",
-    "pdfkit": "^0.13.0",
-    "pdfkit-table": "^0.1.99"
+    "pdfkit": "^0.13.0"
   },
   "devDependencies": {
-    "browserify": "^17.0.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   }
 }

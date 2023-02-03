@@ -3,7 +3,10 @@ const PDFDocument = require("pdfkit-table");
 const fs = require('fs');
 const path = require('path')
 const open = require('open')
+const exec = require('child_process')
 
+//const e = exec.execSync('pkill Acrobat Reader').toString()
+//console.log(e)
 const options = { 
     margin: 30, 
     size: 'A4',
@@ -31,7 +34,10 @@ doc.pipe(fs.createWriteStream(`${outputPath}/output.pdf`));
 
 const section1 = doc.struct('Sect', [
     doc.struct('H', 
-        doc.text("wjnfweojfnwejf weojnfowjen")
+        doc.text("wjnfweojfnwejf weojnfowjen", {
+            align: 'center',
+            bold: true
+        })
     ),
     doc.struct('L', doc.list(['ffffff', 'dddddddd', 'ssssssss'])),
     doc.struct('P', doc.text('jownefojnofjnwefj')),
@@ -48,18 +54,20 @@ const section1 = doc.struct('Sect', [
     //     width: 600
     // }))
     doc.struct('Table', doc.table({
-        title: "Title",
-        subtitle: "Subtitle",
-        headers: [ "Country", "Conversion rate", "Trend" ],
-        rows: [
-          [ "Switzerland", "12%", "+1.12%" ],
-          [ "France", "67%", "-0.98%" ],
-          [ "England", "33%", "+4.44%" ],
-        ],
-      },{
-        width: 600
-    }))
+            title: "Title",
+            subtitle: "Subtitle",
+            headers: [ "Country", "Conversion rate", "Trend" ],
+            rows: [
+            [ "Switzerland", "12%", "+1.12%" ],
+            [ "France", "67%", "-0.98%" ],
+            [ "England", "33%", "+4.44%" ],
+            ],
+        }, {
+            width: 300
+        })
+    )
 ])
+
 doc.addStructure(section1)
 //*************************** */
 // // Embed a font, set the font size, and render some text

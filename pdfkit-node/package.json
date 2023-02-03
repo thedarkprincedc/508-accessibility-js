@@ -1,0 +1,17 @@
+{
+  "name": "pdfkit-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/app.js",
+  "scripts": {
+    "start": "node bin/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "open": "^8.4.0",
+    "pdfkit": "^0.13.0",
+    "pdfkit-table": "^0.1.99"
+  }
+}
